@@ -2,6 +2,7 @@ html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -23,6 +24,7 @@ body {
           align-items: center;
   min-height: 100vh;
   text-transform: uppercase;
+  margin: 0;
 }
 
 .panel {
@@ -33,9 +35,14 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  left: 0;
 }
 
 .pricing-plan {
@@ -43,6 +50,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -55,6 +65,8 @@ body {
 .pricing-plan h2 {
   color: #919191;
   font-size: large;
+  font-weight: 700;
+  letter-spacing: 1px;
   padding-top: 1rem;
 }
 
@@ -72,6 +84,8 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   text-align: center;
+  -webkit-transition: background-color .2s ease-in-out;
+  transition: background-color .2s ease-in-out;
 }
 
 .pricing-plan .pricing-price {
@@ -90,27 +104,40 @@ body {
   padding: .5rem 1.5rem;
 }
 
+.pricing-plan .pricing-button:hover,
+.pricing-plan .pricing-button:focus {
+  background-color: #e1f1ff;
+}
+
 .pricing-plan .is-featured {
   color: var(--panel-background);
   background-color: var(--secondary-color);
+}
+
+.pricing-plan .is-featured:hover,
+.pricing-plan .is-featured:focus {
+  background-color: #269aff;
 }
 
 ul {
   list-style-type: none;
 }
 
-ul li {
-  border-bottom: 1px solid #d4d4d4;
-  margin: 1em;
-  padding: .7em;
+ul .pricing-features-item {
+  border-top: 1px solid #e1f1ff;
+  padding: 1em 4em;
+}
+
+ul .pricing-features-item:last-child {
+  border-bottom: 1px solid #e1f1ff;
 }
 
 .pricing-plan:nth-of-type(2n) {
-  border-left: 1px solid var(--primary-color);
-  border-right: 1px solid #d4d4d4;
+  border-left: 1px solid #e1f1ff;
+  border-right: 1px solid #e1f1ff;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 901px) {
   .panel {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -126,12 +153,16 @@ ul li {
   .pricing-img {
     width: 100%;
     margin-bottom: 10px;
+    max-width: 100%;
   }
   .pricing-plan {
-    border: none;
+    border-bottom: 1px solid #e1f1ff;
   }
   .pricing-plan:last-child {
     border-bottom: 1px solid #e1f1ff;
+  }
+  .pricing-plan:nth-of-type(2) {
+    border: none;
   }
 }
 /*# sourceMappingURL=app.css.map */
